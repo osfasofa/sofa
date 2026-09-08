@@ -1,0 +1,12 @@
+{
+  "name": "SOFA",
+  "short_name": "SOFA",
+  "description": "A listening room: one turntable, a crate, a few seats.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#120c14",
+  "theme_color": "#120c14",
+  "icons": []
+}

@@ -1,0 +1,93 @@
+{
+  "instrument": "sofa",
+  "brand": "SOFA",
+  "version": 1,
+  "pillars": {
+    "deck": true,
+    "graph": false
+  },
+  "surface": {
+    "hero": "platter",
+    "platters": 1,
+    "crossfaders": 0,
+    "recordButtons": 0,
+    "grammar": [
+      "one turntable, shared",
+      "a crate",
+      "seats",
+      "a terminal"
+    ]
+  },
+  "refusals": [
+    "graph",
+    "cables",
+    "synthesis",
+    "patch layer",
+    "sequencing",
+    "modulation",
+    "mixer",
+    "track grid",
+    "timeline editing",
+    "time-stretch",
+    "accounts",
+    "a second turntable",
+    "a scratch broadcast that is not a mark",
+    "presence that outlives the tab",
+    "sibling-product reveal",
+    "real person or label names in shipped strings"
+  ],
+  "entryPoints": [
+    "src/main.ts",
+    "vendor/sofakit/src/workers/tape.worker.ts",
+    "vendor/sofakit/src/audio/engine.worklet.ts"
+  ],
+  "shippedPages": [
+    "index.html",
+    "public/sofa.webmanifest"
+  ],
+  "allowedImports": [
+    "src/",
+    "vendor/sofakit/src/audio/",
+    "vendor/sofakit/src/workers/",
+    "vendor/sofakit/src/storage/db.ts",
+    "vendor/sofakit/src/motion/"
+  ],
+  "forbiddenImports": [
+    "vendor/sofakit/src/audio/graph-host.ts",
+    "vendor/sofakit/src/audio/graph.worklet.ts",
+    "vendor/sofakit/src/audio/telemetry.ts",
+    "vendor/sofakit/src/workers/graph.worker.ts",
+    "vendor/sofakit/src/storage/db-studio.ts",
+    "vendor/sofakit/src/main.tsx",
+    "vendor/sofakit/src/reel/",
+    "vendor/sofakit/src/loom/"
+  ],
+  "forbiddenShippedTerms": [
+    "sofakit",
+    "reel",
+    "loom",
+    "syrup",
+    "prometheizz",
+    "synth",
+    "patch",
+    "oscillator",
+    "sequencer",
+    "modulat",
+    "cable",
+    "workstation",
+    "stretch",
+    "teenage",
+    "op-1",
+    "op1",
+    "tp-7",
+    "tp7"
+  ],
+  "brandMustNotBe": [
+    "sofakit",
+    "syrup",
+    "prometheizz",
+    "loom",
+    "reel",
+    "spool"
+  ]
+}

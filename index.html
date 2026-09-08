@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#120c14" />
+    <link rel="manifest" href="/sofa.webmanifest" />
+    <link rel="icon" href="data:," />
+    <title>SOFA</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #120c14;
+        --panel: #1a1220;
+        --edge: #2b1f33;
+        --ink: #e8dcef;
+        --dim: #8a7a96;
+        --purple: #a05ad6;
+        --rec: #e5533d;
+        --ok: #4fc98a;
+        --warn: #e0a53d;
+      }
+      * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font: 15px/1.45 ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+        display: flex;
+        justify-content: center;
+        padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+        user-select: none;
+        -webkit-user-select: none;
+      }
+      main {
+        width: 100vw;
+        max-width: 34rem;
+        padding: 0.75rem 1.25rem 2rem;
+        display: grid;
+        gap: 0.75rem;
+        align-content: start;
+      }
+      header { display: flex; align-items: baseline; justify-content: space-between; }
+      header h1 { font-size: 1rem; margin: 0; letter-spacing: 0.25em; font-weight: 700; color: var(--purple); }
+      header .room { color: var(--dim); font-size: 0.72rem; letter-spacing: 0.15em; }
+      #err { color: var(--warn); font-size: 0.78rem; text-align: center; min-height: 1.2em; }
+      .deck { background: var(--panel); border: 1px solid var(--edge); border-radius: 12px; padding: 0.75rem; display: grid; gap: 0.55rem; overflow: visible; }
+      .deck header { align-items: center; }
+      .deck h2 { margin: 0; font-size: 0.75rem; letter-spacing: 0.2em; color: var(--dim); font-weight: 400; }
+      .deck .counter { font-size: 1.1rem; font-variant-numeric: tabular-nums; }
+      .deck .status { color: var(--dim); font-size: 0.75rem; min-height: 1.1em; text-align: center; }
+      .table { display: grid; gap: 0.4rem; justify-items: center; }
+      .disc {
+        width: calc(100% + 1.5rem);
+        max-width: 28rem;
+        aspect-ratio: 1;
+        height: auto;
+        margin: 0 -0.75rem;
+        cursor: grab;
+        touch-action: none;
+        position: relative;
+        z-index: 1;
+      }
+      .disc:active { cursor: grabbing; }
+      .drop {
+        border: 1px dashed var(--edge);
+        border-radius: 10px;
+        padding: 0.45rem 0.5rem;
+        width: 100%;
+        text-align: center;
+        color: var(--dim);
+        font-size: 0.74rem;
+        cursor: pointer;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .drop.over { border-color: var(--purple); color: var(--ink); }
+      .drop.busy { border-style: solid; color: var(--rec); }
+      .meter { height: 4px; background: var(--edge); border-radius: 2px; overflow: hidden; }
+      .meter > div { height: 100%; width: 0; background: var(--ok); transition: width 60ms linear; }
+      .meter.hot > div { background: var(--rec); }
+      .row { display: flex; gap: 0.45rem; justify-content: center; flex-wrap: wrap; }
+      button {
+        font: inherit;
+        font-size: 0.78rem;
+        color: var(--ink);
+        background: #15101a;
+        border: 1px solid var(--edge);
+        border-radius: 10px;
+        padding: 0.35rem 0.8rem;
+        min-height: 36px;
+        cursor: pointer;
+      }
+      button.on { color: var(--purple); border-color: var(--purple); }
+      #fineprint { color: var(--dim); font-size: 0.7rem; line-height: 1.5; text-align: center; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header><h1 id="brand">SOFA</h1><span class="room">a listening room</span></header>
+      <div id="err" aria-live="polite"></div>
+      <section class="deck" id="turntable" data-role="platter">
+        <header><h2>TURNTABLE</h2><span class="counter">0:00.0</span></header>
+        <div class="table">
+          <canvas class="disc" aria-label="the platter — grab it"></canvas>
+          <div class="drop" title="drop a record here, or tap to pick one">waking the turntable…</div>
+          <input class="file" type="file" accept="audio/*,.wav,.flac,.mp3,.m4a,.ogg,.opus" hidden />
+        </div>
+        <div class="meter"><div></div></div>
+        <div class="status"></div>
+        <div class="row">
+          <button class="motor" data-role="motor">motor</button>
+        </div>
+      </section>
+      <p id="fineprint">
+        Everything here stays on this device: the tape lives in this browser's storage and nothing leaves the page.
+        A record is played, never sent. Seats, the shared head and the needle arrive next.
+      </p>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

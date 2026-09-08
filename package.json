@@ -1,0 +1,31 @@
+{
+  "name": "sofa",
+  "private": true,
+  "version": "0.0.0",
+  "license": "AGPL-3.0-or-later",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "build-wasm": "cd vendor/sofakit && cargo build -p sk-dsp-wasm --target wasm32-unknown-unknown --profile dev-fast",
+    "test": "node --test tests/node/*.test.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "esbuild": "^0.25.0",
+    "eslint": "^9.33.0",
+    "playwright-core": "^1.58.0",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.40.0",
+    "vite": "^7.1.0"
+  },
+  "dependencies": {
+    "@vercel/blob": "^2.8.0",
+    "spools": "^0.2.1",
+    "y-protocols": "^1.0.7",
+    "yjs": "^13.6.32"
+  }
+}

@@ -1,0 +1,31 @@
+# macOS / editor
+.DS_Store
+._*
+*.swp
+*~
+.vscode/
+.idea/
+
+# Build output
+/node_modules/
+/dist/
+/target/
+
+# `vercel link` / `vercel build` state; tokens live under it. Never committed.
+.vercel
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# The factory bank is rendered, not committed (scripts/bank.mjs)
+/public/bank/
+.env*
+
+# browser-suite screenshot droppings
+basic-*.png
+desk-*.png
+circle-*.png
+console-*.png
+newborn.png

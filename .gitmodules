@@ -1,0 +1,3 @@
+[submodule "vendor/sofakit"]
+	path = vendor/sofakit
+	url = https://github.com/osfasofa/sofakit.git
